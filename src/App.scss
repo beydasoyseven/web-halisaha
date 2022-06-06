@@ -1,3 +1,10 @@
-.App{
-    background-color: ;
+$darker-green: #5fd068;
+$lighter-green: #4b8673;
+$cream: #f6fbf4;
+$tan: #f5df99;
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  background-color: $darker-green;
 }

@@ -1,31 +1,14 @@
 import "./App.css";
+//import RegisterPage from "./Pages/RegisterPage/RegisterPage";
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import RegisterPage from "./Pages/RegisterPage/RegisterPage";
 
 function App() {
   return (
     <div className="App">
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          login();
-        }}
-      >
-        <div>
-          <span> Username </span>
-          <input type={"text"} placeholder={"Username"}></input>
-        </div>
-        <div>
-          <span> Password </span>
-          <input type={"password"} placeholder={"Password"}></input>
-        </div>
-        <input type={"submit"}></input>
-      </form>
+      <RegisterPage></RegisterPage>
     </div>
   );
 }
-
-const login = ()=>{
-  
-}
-
 
 export default App;
