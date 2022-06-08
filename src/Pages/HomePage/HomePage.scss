@@ -1,0 +1,19 @@
+
+$background-color : black;
+
+.HomePage{
+  width: 100vw;
+  min-height: 100vh;
+  height: fit-content;
+  background-color: $background-color;
+  .Search-Bar-Button-Container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    position: fixed;
+    width: fit-content;
+    left: 0px;
+    top: 0px;
+  }
+}

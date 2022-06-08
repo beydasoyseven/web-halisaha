@@ -4,7 +4,9 @@ $cream: #f6fbf4;
 $tan: #f5df99;
 
 .App {
-  width: 100vw;
+  width: fit-content;
+  min-width: 100vw;
   height: 100vh;
+  //min-height: 100vh;
   background-color: $darker-green;
 }

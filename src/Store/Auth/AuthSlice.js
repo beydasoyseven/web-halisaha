@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import data from "./data";
+import data from "../data";
 
 const authSlice = createSlice({
     name: 'auth',
@@ -35,6 +35,11 @@ const authSlice = createSlice({
             let password = action.payload.password;
             let repassword = action.payload.repassword;
 
+            if  (password !== repassword) {
+                state.auth.registerMessage = "Password must be same with RePassword !"
+                return;
+            }
+
             let userDatas = state.user.array;
 
             let foundFlag = false;
@@ -62,10 +67,25 @@ const authSlice = createSlice({
             }
 
         },
-        addField(action, payload){
+        addField(state, action){
+            state.fields.count += 1;
+            state.fields.array.push({...action.payload});
+        },
+        removeField(state, action){
 
         },
-        addBooking(action, payload){
+        updateField(state, action){
+            let fieldArray = [...state.fields.array];
+            fieldArray[action.payload.id] = {...action.payload.field};
+            state.fields.array = [...fieldArray];
+        },
+        fieldFilter(state, action){
+            state.filter = {...action.payload};
+        },
+        addBooking(state, action) {
+
+        },
+        removeBooking(state, action){
 
         }
     }

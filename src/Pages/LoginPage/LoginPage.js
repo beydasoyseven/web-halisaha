@@ -3,12 +3,15 @@ import "./LoginPage.css"
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {authAction} from "../../Store/Auth/AuthSlice";
-
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = (props) => {
 
+    const navigate = useNavigate();
+
     const login = (username, password) => {
         dispatch(authAction.login({username:username, password: password}));
+        navigate("/home");
         //TODO: Navigate To homepage
     };
 
