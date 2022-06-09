@@ -10,16 +10,13 @@ const FieldGrid = (props) =>{
 
     const checkFilter = (value, filter) => {
         if (filter === "" || filter === 0){
-            console.log("Filter true")
             return true;
         }
 
         if (filter === value){
-            console.log("Filter true")
             return true;
         }
 
-        console.log("Filter false")
         return false;
     }
 
@@ -36,7 +33,6 @@ const FieldGrid = (props) =>{
                         if ((part.price <= filterData.maxPrice || filterData.maxPrice === 0) &&
                             (part.minGameTime <= filterData.minGameTime || filterData.minGameTime === 0))
                         {
-                            console.log(x)
                             return x;
                         }
                     }
@@ -44,9 +40,8 @@ const FieldGrid = (props) =>{
                 return null;
             }).map((x)=>{
                 return (
-                    <Grid item  xs={12} sm={9} md={6} lg={3} xl={2} key={"field:"+x.fieldId}>
-                        {console.log(x)}
-                        <FieldCard field={x}/>
+                    <Grid item  xs={12} sm={9} md={6} lg={3} xl={2} key={"field:"+ x.fieldId}>
+                        <FieldCard field={x} select={props.select}/>
                     </Grid>
                 );
             })}

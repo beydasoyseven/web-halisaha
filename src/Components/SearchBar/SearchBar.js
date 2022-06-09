@@ -156,10 +156,10 @@ const SearchBar = (props) =>
                     }}
                 />
                 <Button
-                sx={{width:'200px', marginTop:'15px', marginLeft: '50px'}}
+                sx={{width:'200px', marginTop:'15px', marginLeft: '50px',bgcolor:"rgba(5,184,34,255)"}}
                 variant='contained'
                 onClick={submitButtonHandler}
-                >Submit</Button>
+                >Filter</Button>
             </Box>
         </Drawer>
     );

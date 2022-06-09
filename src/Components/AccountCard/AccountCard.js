@@ -3,7 +3,6 @@ import {
     Avatar,
     Button,
     Card,
-    CardActions,
     CardContent,
     CardHeader,
     Grid,
@@ -14,33 +13,36 @@ import {
 import {deepOrange} from "@mui/material/colors";
 import {CheckBox, Label} from "@mui/icons-material";
 
-import {initialUserData} from "../../Store/data";
+import {useSelector} from "react-redux";
 
 const AccountCard = (props)=>{
 
+    const userID = useSelector(state => state.auth.auth.userID);
 
-    //TODO: User verisini cek
-    const [userData, setUserData] = useState({...initialUserData});
+    let user = useSelector(state => state.auth.user.array)
+    user = user.filter((x)=>{
+        return (x.userId === userID);
+    })
+
+    const [userData, setUserData] = useState({...user[0],});
+
+    console.log(userData);
+
 
     const superCheckHandler = (event) => {
-        console.log(event.target.checked)
         setUserData({...userData, isSuper: event.target.checked});
     }
 
     const usernameHandler = (event) => {
-        console.log(event.target.value)
         setUserData({...userData, username: event.target.value});
     }
     const nameHandler = (event) => {
-        console.log(event.target.value)
         setUserData({...userData, name: event.target.value});
     }
     const surnameHandler = (event) => {
-        console.log(event.target.value)
         setUserData({...userData, surname: event.target.value});
     }
     const emailHandler = (event) => {
-        console.log(event.target.value)
         setUserData({...userData, email: event.target.value});
     }
 
@@ -67,7 +69,7 @@ const AccountCard = (props)=>{
                                     BS
                                 </Avatar>}
                             title={
-                                "Beyda Soyseven"
+                                userData.name + " " + userData.surname
                             }
                         ></CardHeader>
                         <CardContent>
@@ -89,10 +91,12 @@ const AccountCard = (props)=>{
                                 If you want to add field check box !
                             </Typography>
                         </CardContent>
-                        <CardContent>
+                        <CardContent
+                            sx={{display:"flex",justifyContent:"center"}}
+                        >
                             <Button onClick={()=>{
 
-                            }} variant={"contained"}>Save</Button>
+                            }} variant={"contained"} sx={{bgcolor:"rgba(5,184,34,255)"}}>Save</Button>
                         </CardContent>
                     </Card>
                 </Grid>

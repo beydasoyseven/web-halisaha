@@ -2,7 +2,7 @@
   width: 100vw;
   min-height: 100vh;
   height: fit-content;
-  background-color: black; }
+  background-color: #212121; }
   .HomePage .Search-Bar-Button-Container {
     display: flex;
     flex-direction: column;

@@ -2,6 +2,7 @@ import "./RegisterPage.css"
 import {useState} from "react";
 import {authAction} from "../../Store/Auth/AuthSlice";
 import {useDispatch, useSelector} from "react-redux";
+import {Button, Card, CardActions, CardContent, CardHeader, Grid, TextField} from "@mui/material";
 
 const RegisterPage = (props) =>{
 
@@ -22,70 +23,63 @@ const RegisterPage = (props) =>{
         <span className="Title"> E-Soccer Field </span>
         <span className="Description"> Servise For Soccer Field Booking </span>
       </div>
-      <form
-        className="Input-Form"
-        onSubmit={(e) => {
-          e.preventDefault();
-          register(username, email, password, repassword);
-          //TODO: Login page e navigate edilebilir.
-        }}
-      >
-        <div className="Username-Container Container">
-          <span> Username </span>
-          <input required={true} type={"text"} placeholder={"Username"} onChange={
-              (event)=>{
-                  var value = event.target.value;
-                  console.log(value);
-                  setUsername(value);
-              }
-          }></input>
-        </div>
-          <div className="Email-Container Container">
-              <span> Email </span>
-              <input required={true} type={"text"} placeholder={"Email"} onChange={
-                  (event)=>{
-                  var value = event.target.value;
-                  console.log(value);
-                  setEmail(value);
-              }}></input>
-          </div>
-        <div className="Password-Container Container">
-          <span> Password </span>
-          <input
-            required={true}
-            type={"password"}
-            placeholder={"Password"}
-            onChange={
-              (event)=>{
-                var value = event.target.value;
-                console.log(value);
-                setPassword(value);
-            }}
-          ></input>
-        </div>
-        <div className="Re-Password-Container Container">
-          <span> Re-Password </span>
-          <input
-            required={true}
-            type={"password"}
-            placeholder={"Re-Password"}
-            onChange={
-                (event)=>{
-                    var value = event.target.value;
-                    console.log(value);
-                    setRepassword(value);
-                }
-            }
-          ></input>
-        </div>
-        <div className="OldUser-Container">
-          If You Have Account<a href="\Login"> Login </a>
-        </div>
-        <div className="Login-Container Container">
-            {registerMessage !== "" ? <h2>{registerMessage}</h2>: ""}
-          <input type={"submit"} value={"Register"}></input>
-        </div>
-      </form>
+            <Grid container
+                  spacing={0}
+                  direction="column"
+                  alignItems="center"
+                  justify="center"
+            >
+                <Grid item xs={12} md={12} lg={12} xl={12}>
+                    <Card
+                        elevation={5}
+                        sx={{margin:'auto' ,bgcolor:"white"}}
+                    >
+                        <CardHeader
+                        ></CardHeader>
+                        <CardContent>
+                            <TextField sx={{width:270}} label={"Username"} variant={"filled"} onChange={
+                                (event)=>{
+                                    setUsername(event.target.value);
+                                }
+                            }></TextField>
+                        </CardContent>
+                        <CardContent>
+                            <TextField sx={{width:270}} label={"Email"} variant={"filled"} onChange={
+                                (event)=>{
+                                    setEmail(event.target.value);
+                                }
+                            }></TextField>
+                        </CardContent>
+                        <CardContent>
+                            <TextField sx={{width:270}} label={"Password"} variant={"filled"} onChange={
+                                (event)=>{
+                                    setPassword(event.target.value);
+                                }}>
+
+                            </TextField>
+                        </CardContent>
+                        <CardContent>
+                            <TextField sx={{width:270}} label={"Re-Password"} variant={"filled"} onChange={
+                                (event)=>{
+                                    setRepassword(event.target.value);
+                                }}>
+
+                            </TextField>
+                        </CardContent>
+                        <CardContent>
+                            If You Have Account<a href="\Login"> Login </a>
+                        </CardContent>
+                        <CardActions sx={{display:"flex", justifyContent:"center"}}>
+                            <Button
+                                sx={{bgcolor:"rgba(5,184,34,255)"}}
+                                onClick={()=>{
+                                    register(username, password);
+                                }} variant={"contained"} >Register</Button>
+                        </CardActions>
+                    </Card>
+                </Grid>
+
+            </Grid>
         </div>  
     );
 

@@ -4,6 +4,20 @@ import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {authAction} from "../../Store/Auth/AuthSlice";
 import { useNavigate } from "react-router-dom";
+import {
+    Avatar,
+    Button,
+    Card,
+    CardActions,
+    CardContent,
+    CardHeader,
+    Grid,
+    InputLabel,
+    TextField,
+    Typography
+} from "@mui/material";
+import {deepOrange} from "@mui/material/colors";
+import {CheckBox} from "@mui/icons-material";
 
 const LoginPage = (props) => {
 
@@ -12,12 +26,11 @@ const LoginPage = (props) => {
     const login = (username, password) => {
         dispatch(authAction.login({username:username, password: password}));
         navigate("/home");
-        //TODO: Navigate To homepage
     };
 
     const dispatch = useDispatch();
     const loginMessage = useSelector((state) => state.auth.auth.loginMessage);
-    //const data = useSelector((state) => state.auth.value.loggedInError);
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
   return (
@@ -26,44 +39,48 @@ const LoginPage = (props) => {
         <span className="Title"> E-Soccer Field </span>
         <span className="Description"> Servise For Soccer Field Booking </span>
       </div>
-      <form
-        className="Input-Form"
-        onSubmit={(e) => {
-          e.preventDefault();
-          login(username, password);
-        }}
-      >
-        <div className="Username-Container Container">
-          <span> Username </span>
-          <input required={true} type={"text"} placeholder={"Username"} onChange={
-              (event)=>{
-                var value = event.target.value;
-                console.log("Username: ", value);
-                setUsername(value);
-          }}></input>
-        </div>
-        <div className="Password-Container Container">
-          <span> Password </span>
-          <input
-            required={true}
-            type={"password"}
-            placeholder={"Password"}
-            onChange={
-              (event)=>{
-                var value = event.target.value;
-                console.log("Password: ", value);
-                setPassword(value);
-            }}
-          ></input>
-        </div>
-        <div className="NewUser-Container">
-          If You Don't Have Account ?<a href="\Register"> Register </a>
-        </div>
-        <div className="Login-Container Container">
-            {loginMessage !== "" ? <h2>{loginMessage}</h2> : ""}
-          <input type={"submit"} value={"Login"}></input>
-        </div>
-      </form>
+        <Grid container
+              spacing={0}
+              direction="column"
+              alignItems="center"
+              justify="center"
+        >
+            <Grid item xs={12} md={12} lg={12} xl={12}>
+                <Card
+                    elevation={5}
+                    sx={{margin:'auto' ,bgcolor:"white"}}
+                >
+                    <CardHeader
+                    ></CardHeader>
+                    <CardContent>
+                        <TextField sx={{width:270}} label={"Username"} variant={"filled"} onChange={
+                            (event)=>{
+                                setUsername(event.target.value);
+                            }
+                        }></TextField>
+                    </CardContent>
+                    <CardContent>
+                        <TextField sx={{width:270}} label={"Password"} variant={"filled"} onChange={
+                            (event)=>{
+                                setPassword(event.target.value);
+                            }}>
+
+                        </TextField>
+                    </CardContent>
+                    <CardContent>
+                        If You Don't Have Account ?<a href="\Register"> Register </a>
+                    </CardContent>
+                    <CardActions sx={{display:"flex", justifyContent:"center"}}>
+                        <Button
+                            sx={{bgcolor:"rgba(5,184,34,255)"}}
+                            onClick={()=>{
+                            login(username, password);
+                        }} variant={"contained"} >Login</Button>
+                    </CardActions>
+                </Card>
+            </Grid>
+
+        </Grid>
     </div>
   );
 };

@@ -14,6 +14,7 @@ var data = {
             username:"beyda",
                 name:"Beyda",
                 surname:"Soyseven",
+                email:"beydasoyseven@outlook.com",
             password:"beyda",
             userId:1,
             isSuper: false,},
@@ -39,12 +40,16 @@ var data = {
             street: "",
             mainStreet: "",
             isFavorite:true,
+            minGameTime: 15,
+            price: 10,
             parts: [
                 {
                     minGameTime: 15,
                     price: 10,
                 }
-            ]
+            ],
+            openTime: 480,
+            closeTime: 1200
         }
     ]},
     filter:{
@@ -56,9 +61,18 @@ var data = {
         minGameTime:0,
         maxPrice:0,
     },
-    booking:[
-
+    booking:{
+        count:1,
+        array:[
+        {
+            bookID: 0,
+            fieldID: 0,
+            userID: 1,
+            times:[480,495],
+            price:30
+        }
     ]
+    }
 }
 
 export const initialFieldData = {
@@ -96,6 +110,14 @@ export const initialUserData = {
         surname:"",
         userId:"",
         isSuper: false,
+}
+
+export const initialBookingData = {
+    bookID: 0,
+    fieldID: 0,
+    userID: 0,
+    times:[],
+    price:0
 }
 
 export default data;

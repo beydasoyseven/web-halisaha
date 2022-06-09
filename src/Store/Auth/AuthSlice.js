@@ -79,14 +79,30 @@ const authSlice = createSlice({
             fieldArray[action.payload.id] = {...action.payload.field};
             state.fields.array = [...fieldArray];
         },
+        favoriteField(state, action){
+            let fieldArray = [...state.fields.array];
+            fieldArray[action.payload.id].isFavorite = action.payload.isFavorite;
+            state.fields.array = [...fieldArray];
+        },
         fieldFilter(state, action){
             state.filter = {...action.payload};
         },
         addBooking(state, action) {
-
+            state.booking.count += 1;
+            let arr = [...state.booking.array];
+            arr.push(action.payload);
+            state.booking.array = [...arr];
+            //TODO Mail attiricaz
         },
         removeBooking(state, action){
-
+            state.booking.count -= 1;
+            let arr = [...state.booking.array];
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].bookID === action.payload){
+                    arr.pop(i);
+                }
+            }
+            state.booking.array = [...arr];
         }
     }
 });
