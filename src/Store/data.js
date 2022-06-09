@@ -20,7 +20,7 @@ var data = {
             isSuper: false,},
                 {
             username:"admin",
-            password:"admin",
+            password:"1234",
                     name:"Admin",
                     surname:"Admin",
             userId:0,
