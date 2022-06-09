@@ -11,11 +11,11 @@ var data = {
         {
             userCount:2,
             array: [{
-            username:"beyda",
+            username:"Beyda",
                 name:"Beyda",
                 surname:"Soyseven",
                 email:"beydasoyseven@outlook.com",
-            password:"beyda",
+            password:"1234",
             userId:1,
             isSuper: false,},
                 {
@@ -28,18 +28,39 @@ var data = {
                 }]
         },
     fields:{
-        count:1,
+        count:4,
         array:[
         {
             fieldID: 0,
             ownerID: 0,
-            name: "Test Field",
+            name: "Dinç Halı Sahası",
             city: "İstanbul",
             county: "Küçükçekmece",
             neighbourhood: "",
             street: "",
             mainStreet: "",
             isFavorite:true,
+            minGameTime: 10,
+            price: 15,
+            parts: [
+                {
+                    minGameTime: 10,
+                    price: 15,
+                }
+            ],
+            openTime: 480,
+            closeTime: 1200
+        },
+        {
+            fieldID: 1,
+            ownerID: 0,
+            name: "Araz Halı Sahası",
+            city: "İstanbul",
+            county: "Küçükçekmece",
+            neighbourhood: "",
+            street: "",
+            mainStreet: "",
+            isFavorite:false,
             minGameTime: 15,
             price: 10,
             parts: [
@@ -50,7 +71,50 @@ var data = {
             ],
             openTime: 480,
             closeTime: 1200
-        }
+        },
+        {
+            fieldID: 2,
+            ownerID: 0,
+            name: "Kada Halı Sahası",
+            city: "İstanbul",
+            county: "Küçükçekmece",
+            neighbourhood: "",
+            street: "",
+            mainStreet: "",
+            isFavorite:false,
+            minGameTime: 25,
+            price: 30,
+            parts: [
+                {
+                    minGameTime: 25,
+                    price: 30,
+                }
+            ],
+            openTime: 480,
+            closeTime: 1200
+        },
+        {
+            fieldID: 3,
+            ownerID: 0,
+            name: "Demir Halı Sahası",
+            city: "Edirne",
+            county: "Havsa",
+            neighbourhood: "",
+            street: "",
+            mainStreet: "",
+            isFavorite:true,
+            minGameTime: 25,
+            price: 30,
+            parts: [
+                {
+                    minGameTime: 25,
+                    price: 30,
+                }
+            ],
+            openTime: 480,
+            closeTime: 1200
+        },
+       
     ]},
     filter:{
         city:"",

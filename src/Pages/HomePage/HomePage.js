@@ -38,7 +38,7 @@ const HomePage = (props) => {
                 <IconButton onClick={()=>{
                     setSearchBarOpen(true);
                 }}>
-                    <PlayArrow sx={{ height: 38, width: 38 , color:"white"}} />
+                    <PlayArrow sx={{ height: 64, width: 64 , color:"red"}} />
                 </IconButton>
             </div>
             {detailFlag?
